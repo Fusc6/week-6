@@ -1,4 +1,5 @@
-class Employee:
+from abc import ABC, abstractmethod
+class Employee(ABC):
   def __init__(self, first_name, last_name, employee_id):
     self.first_name = first_name
     self.last_name = last_name
@@ -7,6 +8,15 @@ class Employee:
 
   def set_base_salary(self, salary):
     self.base_salary = salary
+
+  @abstractmethod
+  def get_salary(self):
+    pass
+
+  @abstractmethod
+  def get_staff_info(self):
+    pass
+  
 
 class TeachingStaff (Employee):
   def __init__(self, first_name, last_name, employee_id, teaching_area, category):
@@ -52,3 +62,4 @@ class AdministrativeStaff(Employee):
     '\nEmployee ID: ' + str(self.employee_id) + \
     '\nLevel: ' + str(self.level) + \
     '\nSalary: ' + str(self.get_salary())
+
